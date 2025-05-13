@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satyamev International</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #004d40;
+            --secondary: #ffb300;
+            --bg: #f5f5f5;
+        }
+        
+        /* Claymorphism styles */
+        .clay {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 16px;
+            box-shadow: 
+                20px 20px 60px rgba(0, 0, 0, 0.1),
+                -20px -20px 60px rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .clay:hover {
+            transform: translateY(-5px);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .testimonial-slider {
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-['Poppins']">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 clay bg-white/80 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-primary">
+                <img src="https://via.placeholder.com/150x50" alt="Satyamev International" class="h-12">
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="nav-link text-primary hover:text-secondary">Home</a>
+                <a href="#about" class="nav-link text-primary hover:text-secondary">About</a>
+                <a href="#services" class="nav-link text-primary hover:text-secondary">Services</a>
+                <a href="#products" class="nav-link text-primary hover:text-secondary">Products</a>
+                <a href="#why-us" class="nav-link text-primary hover:text-secondary">Why Choose Us</a>
+                <a href="#testimonials" class="nav-link text-primary hover:text-secondary">Testimonials</a>
+                <a href="#contact" class="nav-link text-primary hover:text-secondary">Contact</a>
+            </div>
+            <button class="md:hidden text-primary" onclick="toggleMobileMenu()">
+                <i class="bi bi-list text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden fixed top-0 left-0 w-full h-full bg-white/95 z-40 pt-20">
+        <div class="flex flex-col items-center space-y-6 text-lg">
+            <a href="#home" class="text-primary hover:text-secondary">Home</a>
+            <a href="#about" class="text-primary hover:text-secondary">About</a>
+            <a href="#services" class="text-primary hover:text-secondary">Services</a>
+            <a href="#products" class="text-primary hover:text-secondary">Products</a>
+            <a href="#why-us" class="text-primary hover:text-secondary">Why Choose Us</a>
+            <a href="#testimonials" class="text-primary hover:text-secondary">Testimonials</a>
+            <a href="#contact" class="text-primary hover:text-secondary">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="h-screen relative flex items-center" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=80') center/cover;">
+        <div class="container mx-auto px-4 text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Satyamev International – Your Trusted Import & Export Partner</h1>
+            <p class="text-xl md:text-2xl mb-8">Providing seamless global trade solutions for your business growth.</p>
+            <button class="clay bg-secondary text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition">
+                Explore Our Services
+            </button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="clay p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-8 text-center">Welcome to The Satyamev International</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <p class="text-gray-700 mb-6">
+                            At Satyamev International, we believe in fostering global trade relationships built on trust, integrity, and mutual growth. Our extensive network spans across continents, enabling us to deliver premium quality products and services to our valued clients worldwide.
+                        </p>
+                        <p class="text-gray-700 mb-6">
+                            With a commitment to excellence and customer satisfaction, we have established ourselves as a reliable partner in international trade, specializing in agricultural products and comprehensive trade solutions.
+                        </p>
+                        <div class="flex items-center mt-8">
+                            <img src="https://via.placeholder.com/80" alt="CEO" class="rounded-full mr-4">
+                            <div>
+                                <h3 class="font-semibold text-primary">Mr. Jenish Kakadiya</h3>
+                                <p class="text-gray-600">CEO & Founder</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80" alt="About Us" class="rounded-lg shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">Why Choose Us</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="clay p-6 text-center">
+                    <i class="bi bi-award text-4xl text-secondary mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Quality Product</h3>
+                    <p class="text-gray-600">Satyamev International Believes In Nothing But, Quality With Commitment.</p>
+                </div>
+                <!-- Add remaining Why Choose Us items similarly -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">Our Services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Add service items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">Our Products</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Add product items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">What Our Clients Say</h2>
+            <div class="testimonial-slider clay p-8">
+                <!-- Add testimonial slides -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">Contact Us</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="clay p-8">
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" class="w-full p-3 rounded-lg border" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full p-3 rounded-lg border" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Phone</label>
+                            <input type="tel" class="w-full p-3 rounded-lg border" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Message</label>
+                            <textarea class="w-full p-3 rounded-lg border h-32" required></textarea>
+                        </div>
+                        <button type="submit" class="bg-secondary text-white px-8 py-3 rounded-full hover:bg-opacity-90 transition w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="clay p-8">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                        <p class="mb-2"><i class="bi bi-geo-alt mr-2"></i> 810, Silver Trade Center, Near VIP Circle, Mota Varachha, Surat, Gujarat – 394101</p>
+                        <p class="mb-2"><i class="bi bi-envelope mr-2"></i> info@sietc.in</p>
+                        <p class="mb-2"><i class="bi bi-phone mr-2"></i> +91 7600 230 298, +91 7600 230 241</p>
+                    </div>
+                    <div class="h-64">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1000!2d72.8777!3d21.2473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDE0JzUwLjMiTiA3MsKwNTInMzkuNyJF!5e0!3m2!1sen!2sin!4v1635835824092!5m2!1sen!2sin" class="w-full h-full rounded-lg" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">About Us</h3>
+                    <p class="text-gray-300">Your trusted partner in global trade solutions.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-secondary">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-secondary">About</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-secondary">Services</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-secondary">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl hover:text-secondary"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-secondary"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-2xl hover:text-secondary"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Newsletter</h3>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="p-2 rounded-l-lg w-full">
+                        <button class="bg-secondary px-4 rounded-r-lg hover:bg-opacity-90">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center">
+                <p>&copy; 2023 Satyamev International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (window.innerWidth < 768) {
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you soon!');
+            this.reset();
+        });
+
+        // Testimonial slider
+        const testimonials = [
+            { author: 'SHGroup', text: 'Their trade financing helped us expand. Highly satisfied!' },
+            { author: 'HenilExporter', text: 'Seamless import process. Highly recommended!' },
+            { author: 'JRGroup', text: 'Helped us navigate complex international markets.' },
+            { author: 'HKJC', text: 'Efficient inventory & logistics support. Trusted partner.' }
+        ];
+
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slider = document.querySelector('.testimonial-slider');
+            slider.innerHTML = `
+                <div class="slide active text-center">
+                    <p class="text-gray-700 text-lg mb-4">"${testimonials[index].text}"</p>
+                    <p class="font-semibold text-primary">- ${testimonials[index].author}</p>
+                </div>
+            `;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % testimonials.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+        setInterval(nextSlide, 5000);
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
